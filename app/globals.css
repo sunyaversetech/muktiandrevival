@@ -1,0 +1,501 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Retro Hi-Fi System Theme - Technics / Sony Walkman / Braun Inspired */
+:root {
+  /* Rich walnut wood cabinet */
+  --background: oklch(0.14 0.025 40);
+  --foreground: oklch(0.92 0.015 75);
+  
+  /* Brushed aluminum panel */
+  --card: oklch(0.22 0.01 55);
+  --card-foreground: oklch(0.92 0.015 75);
+  
+  /* Popover */
+  --popover: oklch(0.18 0.02 45);
+  --popover-foreground: oklch(0.92 0.015 75);
+  
+  /* Warm amber VU meter / LED glow */
+  --primary: oklch(0.75 0.16 60);
+  --primary-foreground: oklch(0.12 0.02 40);
+  
+  /* Brushed chrome */
+  --secondary: oklch(0.45 0.008 55);
+  --secondary-foreground: oklch(0.95 0.01 60);
+  
+  /* Dark charcoal */
+  --muted: oklch(0.25 0.01 50);
+  --muted-foreground: oklch(0.6 0.015 60);
+  
+  /* Forest green vinyl */
+  --accent: oklch(0.38 0.1 150);
+  --accent-foreground: oklch(0.95 0.01 60);
+  
+  /* Red recording indicator */
+  --destructive: oklch(0.5 0.22 25);
+  --destructive-foreground: oklch(0.95 0.01 60);
+  
+  /* Subtle borders */
+  --border: oklch(0.28 0.015 50);
+  --input: oklch(0.2 0.01 45);
+  --ring: oklch(0.75 0.16 60);
+  
+  /* Chart colors */
+  --chart-1: oklch(0.75 0.16 60);
+  --chart-2: oklch(0.38 0.1 150);
+  --chart-3: oklch(0.65 0.08 70);
+  --chart-4: oklch(0.45 0.008 55);
+  --chart-5: oklch(0.5 0.22 25);
+  
+  --radius: 0.25rem;
+  
+  /* Sidebar */
+  --sidebar: oklch(0.12 0.02 40);
+  --sidebar-foreground: oklch(0.92 0.015 75);
+  --sidebar-primary: oklch(0.75 0.16 60);
+  --sidebar-primary-foreground: oklch(0.12 0.02 40);
+  --sidebar-accent: oklch(0.2 0.015 50);
+  --sidebar-accent-foreground: oklch(0.92 0.015 75);
+  --sidebar-border: oklch(0.25 0.015 45);
+  --sidebar-ring: oklch(0.75 0.16 60);
+}
+
+@theme inline {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', 'Georgia', serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 1px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ============ VINYL ANIMATIONS ============ */
+@keyframes spin-vinyl {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-vinyl-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-vinyl {
+  animation: spin-vinyl 2s linear infinite;
+}
+
+.animate-spin-vinyl-slow {
+  animation: spin-vinyl-slow 4s linear infinite;
+}
+
+/* ============ CASSETTE REEL ANIMATION ============ */
+@keyframes spin-reel {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-reel {
+  animation: spin-reel 1.5s linear infinite;
+}
+
+.animate-spin-reel-slow {
+  animation: spin-reel 3s linear infinite;
+}
+
+/* ============ VU METER NEEDLE ============ */
+@keyframes vu-swing {
+  0% { transform: rotate(-45deg); }
+  15% { transform: rotate(-15deg); }
+  30% { transform: rotate(-35deg); }
+  45% { transform: rotate(-8deg); }
+  60% { transform: rotate(-25deg); }
+  75% { transform: rotate(-12deg); }
+  90% { transform: rotate(-30deg); }
+  100% { transform: rotate(-45deg); }
+}
+
+.animate-vu-needle {
+  animation: vu-swing 2s ease-in-out infinite;
+  transform-origin: 50% 90%;
+}
+
+/* ============ LED GLOW EFFECTS ============ */
+@keyframes led-pulse {
+  0%, 100% { 
+    opacity: 0.7; 
+    box-shadow: 0 0 4px currentColor;
+    filter: brightness(0.9);
+  }
+  50% { 
+    opacity: 1; 
+    box-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes led-blink {
+  0%, 45%, 55%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-led-pulse {
+  animation: led-pulse 1.2s ease-in-out infinite;
+}
+
+.animate-led-blink {
+  animation: led-blink 0.8s ease-in-out infinite;
+}
+
+/* ============ TONEARM ANIMATION ============ */
+@keyframes tonearm-hover {
+  0%, 100% { transform: rotate(-25deg); }
+  50% { transform: rotate(-24deg); }
+}
+
+@keyframes tonearm-playing {
+  from { transform: rotate(-2deg); }
+  to { transform: rotate(25deg); }
+}
+
+.animate-tonearm-hover {
+  animation: tonearm-hover 3s ease-in-out infinite;
+  transform-origin: 85% 15%;
+}
+
+.animate-tonearm-playing {
+  animation: tonearm-playing 180s linear forwards;
+  transform-origin: 85% 15%;
+}
+
+/* ============ TEXTURES ============ */
+
+/* Rich walnut wood grain */
+.wood-cabinet {
+  background: 
+    repeating-linear-gradient(
+      92deg,
+      transparent 0px,
+      rgba(80, 50, 30, 0.06) 1px,
+      transparent 2px,
+      transparent 8px
+    ),
+    repeating-linear-gradient(
+      88deg,
+      transparent 0px,
+      rgba(60, 35, 20, 0.04) 1px,
+      transparent 3px,
+      transparent 12px
+    ),
+    linear-gradient(
+      180deg,
+      oklch(0.16 0.03 40) 0%,
+      oklch(0.13 0.025 38) 30%,
+      oklch(0.15 0.028 42) 70%,
+      oklch(0.12 0.02 38) 100%
+    );
+}
+
+/* Brushed aluminum */
+.brushed-metal {
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 2px,
+      transparent 3px
+    ),
+    linear-gradient(
+      180deg,
+      oklch(0.32 0.008 55) 0%,
+      oklch(0.25 0.006 55) 50%,
+      oklch(0.3 0.008 55) 100%
+    );
+}
+
+/* Dark brushed steel */
+.brushed-steel {
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(
+      180deg,
+      oklch(0.22 0.005 50) 0%,
+      oklch(0.18 0.004 50) 50%,
+      oklch(0.2 0.005 50) 100%
+    );
+}
+
+/* Vintage chrome */
+.chrome-finish {
+  background: linear-gradient(
+    180deg,
+    oklch(0.55 0.008 55) 0%,
+    oklch(0.4 0.006 55) 30%,
+    oklch(0.6 0.01 55) 50%,
+    oklch(0.35 0.005 55) 70%,
+    oklch(0.5 0.008 55) 100%
+  );
+}
+
+/* Rubber mat texture */
+.rubber-mat {
+  background: 
+    radial-gradient(circle at 50% 50%, oklch(0.12 0.01 45) 0%, oklch(0.08 0.008 45) 100%),
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      transparent 0px,
+      transparent 1px,
+      rgba(0,0,0,0.15) 1px,
+      rgba(0,0,0,0.15) 2px
+    );
+}
+
+/* Speaker cloth */
+.speaker-cloth {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 1px,
+      rgba(0,0,0,0.3) 1px,
+      rgba(0,0,0,0.3) 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 1px,
+      rgba(0,0,0,0.3) 1px,
+      rgba(0,0,0,0.3) 2px
+    );
+  background-size: 3px 3px;
+  background-color: oklch(0.18 0.01 45);
+}
+
+/* Cassette window */
+.cassette-window {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 15, 10, 0.95) 0%,
+    rgba(35, 25, 15, 0.9) 50%,
+    rgba(25, 18, 12, 0.95) 100%
+  );
+  box-shadow: 
+    inset 0 2px 10px rgba(0,0,0,0.6),
+    inset 0 -2px 6px rgba(0,0,0,0.3),
+    inset 2px 0 6px rgba(0,0,0,0.3),
+    inset -2px 0 6px rgba(0,0,0,0.3);
+}
+
+/* ============ KNOB STYLES ============ */
+.vintage-knob {
+  background: conic-gradient(
+    from 180deg,
+    oklch(0.45 0.008 55) 0deg,
+    oklch(0.3 0.006 55) 60deg,
+    oklch(0.2 0.005 55) 120deg,
+    oklch(0.35 0.007 55) 180deg,
+    oklch(0.2 0.005 55) 240deg,
+    oklch(0.3 0.006 55) 300deg,
+    oklch(0.45 0.008 55) 360deg
+  );
+  box-shadow: 
+    inset 0 2px 3px rgba(255,255,255,0.15),
+    inset 0 -3px 5px rgba(0,0,0,0.4),
+    0 4px 8px rgba(0,0,0,0.5),
+    0 2px 4px rgba(0,0,0,0.3);
+}
+
+.knob-indicator {
+  background: linear-gradient(180deg, oklch(0.9 0.01 60) 0%, oklch(0.7 0.01 60) 100%);
+}
+
+/* ============ BUTTON STYLES ============ */
+.retro-button {
+  background: linear-gradient(
+    180deg,
+    oklch(0.35 0.01 50) 0%,
+    oklch(0.25 0.008 50) 50%,
+    oklch(0.22 0.008 50) 100%
+  );
+  box-shadow: 
+    inset 0 1px 1px rgba(255,255,255,0.08),
+    inset 0 -1px 2px rgba(0,0,0,0.2),
+    0 3px 6px rgba(0,0,0,0.4),
+    0 1px 2px rgba(0,0,0,0.3);
+  transition: all 0.1s ease;
+}
+
+.retro-button:hover {
+  background: linear-gradient(
+    180deg,
+    oklch(0.38 0.012 50) 0%,
+    oklch(0.28 0.01 50) 50%,
+    oklch(0.25 0.01 50) 100%
+  );
+}
+
+.retro-button:active,
+.retro-button.pressed {
+  background: linear-gradient(
+    180deg,
+    oklch(0.2 0.008 50) 0%,
+    oklch(0.25 0.01 50) 100%
+  );
+  box-shadow: 
+    inset 0 2px 4px rgba(0,0,0,0.4),
+    0 1px 1px rgba(0,0,0,0.2);
+  transform: translateY(1px);
+}
+
+/* Transport button (play, stop, etc) */
+.transport-button {
+  background: linear-gradient(
+    180deg,
+    oklch(0.3 0.008 50) 0%,
+    oklch(0.22 0.006 50) 100%
+  );
+  box-shadow: 
+    inset 0 1px 1px rgba(255,255,255,0.06),
+    0 2px 4px rgba(0,0,0,0.4);
+  border: 1px solid oklch(0.35 0.01 50);
+}
+
+.transport-button:active {
+  box-shadow: 
+    inset 0 2px 4px rgba(0,0,0,0.3);
+  transform: translateY(1px);
+}
+
+/* ============ VU METER ============ */
+.vu-meter-bg {
+  background: linear-gradient(
+    180deg,
+    oklch(0.95 0.02 85) 0%,
+    oklch(0.9 0.025 80) 100%
+  );
+  box-shadow: 
+    inset 0 2px 8px rgba(0,0,0,0.2),
+    inset 0 -1px 4px rgba(255,255,255,0.5);
+}
+
+/* ============ MISC ============ */
+.sepia-vintage {
+  filter: sepia(15%) saturate(85%) contrast(95%) brightness(95%);
+}
+
+/* Noise overlay for texture */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Amber glow text */
+.amber-glow {
+  text-shadow: 
+    0 0 4px oklch(0.75 0.16 60 / 0.6),
+    0 0 8px oklch(0.75 0.16 60 / 0.4),
+    0 0 16px oklch(0.75 0.16 60 / 0.2);
+}
+
+/* Green LED glow */
+.green-glow {
+  box-shadow: 
+    0 0 4px oklch(0.6 0.2 145),
+    0 0 8px oklch(0.6 0.2 145 / 0.6),
+    0 0 12px oklch(0.6 0.2 145 / 0.3);
+}
+
+/* Red LED glow */
+.red-glow {
+  box-shadow: 
+    0 0 4px oklch(0.55 0.22 25),
+    0 0 8px oklch(0.55 0.22 25 / 0.6),
+    0 0 12px oklch(0.55 0.22 25 / 0.3);
+}
+
+/* Inset panel */
+.inset-panel {
+  box-shadow: 
+    inset 0 2px 6px rgba(0,0,0,0.4),
+    inset 0 -1px 2px rgba(255,255,255,0.05),
+    0 1px 0 rgba(255,255,255,0.03);
+}
+
+/* Raised panel */
+.raised-panel {
+  box-shadow: 
+    inset 0 1px 1px rgba(255,255,255,0.08),
+    0 4px 12px rgba(0,0,0,0.4),
+    0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Embossed text effect */
+.embossed-text {
+  text-shadow: 
+    0 1px 0 rgba(255,255,255,0.1),
+    0 -1px 0 rgba(0,0,0,0.3);
+}
+
+/* Hide scrollbar but allow scroll */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

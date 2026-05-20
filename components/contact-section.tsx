@@ -72,7 +72,7 @@ export function ContactSection() {
                   boxShadow:
                     "inset 0 2px 8px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.03)",
                 }}>
-                <div className="flex items-center justify-center gap-10">
+                <div className="flex md:flex-row max-sm:flex-col items-center justify-center gap-10">
                   <div>
                     <p className="text-[9px] tracking-[0.3em] uppercase text-zinc-600 mb-3">
                       Tour Presented By

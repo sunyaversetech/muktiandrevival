@@ -15,8 +15,7 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Navigation Bar - Styled like Hi-Fi receiver front panel */}
+    <header className="fixed top-0 left-0 right-0 z-50  overflow-x-hidden">
       <div
         className="brushed-steel border-b border-zinc-700/50"
         style={{

@@ -51,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background overflow-x-hidden">
       <body
-        className={`${instrumentSerif.variable} ${geistMono.variable} ${inter.variable} font-sans antialiased`}>
+        className={`${instrumentSerif.variable} ${geistMono.variable} ${inter.variable} font-sans antialiased w-full overflow-x-hidden`}>
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>

@@ -11,11 +11,11 @@ import { Navigation } from "@/components/navigation";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background noise-overlay">
+    <main className="min-h-screen bg-background noise-overlay w-full overflow-x-hidden">
       <Navigation />
 
       {/* Hero Section - Turntable */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 pt-20 pb-12">
+      <section className="relative min-h-screen flex items-center justify-center px-4 pt-20 pb-12 max-sm:max-w-sm mx-auto ">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card/30" />
 
